@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MovieList from './components/MovieList';
-import movies from './data/movies';
+import Home from './pages/Home';
+import Booking from './pages/Booking';
 
 const App = () => {
   return (
@@ -9,7 +9,8 @@ const App = () => {
       <div className="app">
         <h1>Дошка фільмів</h1>
         <Routes>
-          <Route path="/" element={<MovieList movies={movies} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/booking/:id" element={<Booking />} />
         </Routes>
       </div>
     </BrowserRouter>
