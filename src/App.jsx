@@ -1,13 +1,18 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MovieList from './components/MovieList';
 import movies from './data/movies';
 
 const App = () => {
   return (
-    <div className="app">
-      <h1>Дошка фільмів</h1>
-      <MovieList movies={movies} />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <h1>Дошка фільмів</h1>
+        <Routes>
+          <Route path="/" element={<MovieList movies={movies} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 
