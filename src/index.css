@@ -105,7 +105,7 @@ body {
 }
 
 .seat.booked {
-  background-color: #ccc;
+  background-color: #ff0000;
   cursor: not-allowed;
 }
 
@@ -186,4 +186,54 @@ body {
 
 .modal-content button:hover {
   background-color: #1976d2;
+}
+.booking-form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.booking-form h3 {
+  margin-bottom: 20px;
+}
+
+.booking-form div {
+  margin-bottom: 15px;
+}
+
+.booking-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.booking-form button {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.booking-form button:hover {
+  background-color: #1976d2;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+  .booking-form input {
+    max-width: 250px;
+  }
+
+  .booking-form button {
+    padding: 8px 16px;
+  }
 }
