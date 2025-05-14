@@ -8,11 +8,11 @@ import movies from '../data/movies';
 
 const Booking = () => {
   const { id } = useParams();
-  const movie = movies.find((m) => m.id === parseInt(id));
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
-  const [errors, setErrors] = ObservablesState({ name: '', phone: '', email: '' });
+  const [errors, setErrors] = useState({ name: '', phone: '', email: '' });
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const movie = movies.find((m) => m.id === parseInt(id));
 
   if (!movie) {
     return <div>Фільм не знайдено</div>;
