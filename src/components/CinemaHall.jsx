@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import BookingService from '../services/BookingService';
 
-const CinemaHall = () => {
+const CinemaHall = ({ movieId }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
-  // Фіксовані заброньовані місця (наприклад, 1-2, 2-5, 3-7)
-  const bookedSeats = ['1-2', '2-5', '3-7'];
+  const bookedSeats = BookingService.getBookedSeats(movieId);
   const seats = Array(5).fill().map((_, row) =>
     Array(10).fill().map((_, col) => ({
       id: `${row + 1}-${col + 1}`,
