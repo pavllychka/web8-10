@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BookingService from '../services/BookingService';
 
-const CinemaHall = ({ movieId }) => {
+const CinemaHall = ({ movieId, onBooking }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const bookedSeats = BookingService.getBookedSeats(movieId);
   const seats = Array(5).fill().map((_, row) =>
@@ -20,6 +20,15 @@ const CinemaHall = ({ movieId }) => {
         ? prev.filter((id) => id !== seat.id)
         : [...prev, seat.id]
     );
+  };
+
+  const handleBooking = () => {
+    if (selectedSeats.length === 0) {
+      alert('Виберіть хоча б одне місце!');
+      return;
+    }
+    onBooking(selectedSeats);
+    setSelectedSeats([]);
   };
 
   return (
@@ -42,6 +51,9 @@ const CinemaHall = ({ movieId }) => {
         <h3>Вибрані місця:</h3>
         <p>{selectedSeats.length > 0 ? selectedSeats.join(', ') : 'Немає вибраних місць'}</p>
       </div>
+      <button className="booking-button" onClick={handleBooking}>
+        Забронювати
+      </button>
     </div>
   );
 };

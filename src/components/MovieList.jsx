@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 
-const MovieList = ({ movies }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const MovieList = ({ movies }) => { // Оголошує функціональний компонент MovieList, який приймає проп movies (масив фільмів)
+  const [searchTerm, setSearchTerm] = useState(''); // Створює стан searchTerm (рядок пошуку) із початковим значенням '' і функцію setSearchTerm для його оновлення
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredMovies = movies.filter((movie) => // Фільтрує масив movies, створюючи filteredMovies із фільмами, що відповідають пошуковому запиту
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase()) // Перевіряє, чи містить назва фільму (у нижньому регістрі) текст searchTerm (у нижньому регістрі)
   );
 
   const openModal = (movie) => {
